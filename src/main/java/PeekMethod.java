@@ -5,7 +5,7 @@ public class PeekMethod {
    private void psvm() {
 	// TODO Auto-generated method stub
 
-	example1();
+	//example1();
 }
  
 }
