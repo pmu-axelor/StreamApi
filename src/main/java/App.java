@@ -2,7 +2,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.IntSummaryStatistics;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -29,6 +31,7 @@ public class App {
         example8();
        example9();
        example10();
+       example12();
     }
     
     static void example1() {
@@ -44,6 +47,8 @@ public class App {
     	// Print the contents of the stream
     	newStrem.forEach(e -> System.out.println(e));
     }
+    
+    //creating stream using array
     static void example2() {
     	
     	Integer[] myArray = {1,8,7};
@@ -99,6 +104,8 @@ public class App {
 		
 		System.out.println(result);
 	}
+	
+	//Parallel Array
 	static void example7() {
 		  // Creating an integer array   
         int[] arr = {5,8,1,0,6,9};  
@@ -114,6 +121,7 @@ public class App {
         }
 	} 
 	
+	//peek method
 	  static void example8() {
 			
 		    System.out.println(" ");
@@ -125,6 +133,7 @@ public class App {
 			  .collect(Collectors.toList());
 		}
 	
+	  //limit method
 	static void example9() {
 		
 	    System.out.println(" ");
@@ -136,6 +145,7 @@ public class App {
 	        System.out.println(newList);
 	}
 	
+	
 	static void example10() {
 		
 		System.out.println(" ");
@@ -146,6 +156,33 @@ public class App {
 		     .sorted() // sort them alphabetically
 		     .limit(5) // first 5
 		     .forEach(System.out::println);
+	}
+	
+	/*static void example11() {
+		
+		System.out.println(" ");
+		IntSummaryStatistics stats = Files.lines(Paths.get("Nio.java"))
+				        .map(String::trim)
+				        .filter(s -> !s.isEmpty())
+				        .collect(summarizingInt);
+			 
+			 System.out.println(stats.getAverage());
+			 System.out.println("count=" + stats.getCount());
+			 System.out.println("max=" + stats.getMax());
+			 System.out.println("min=" + stats.getMin());
+	}*/
+	
+	//optional example
+	static void example12() {
+		
+		   String[] words = new String[10];  
+		   Optional<String> checkNull = 
+                   Optional.ofNullable(words[5]);  
+      if (checkNull.isPresent()) {  
+         String word = words[5].toLowerCase();  
+         System.out.print(word);  
+     } else  
+         System.out.println("word is null");  
 	}
 	
 }
